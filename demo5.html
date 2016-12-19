@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myCtro">
+		<!--<ul>
+			<li ng-repeat="user in users">
+				{{user.name}}
+			</li>
+		</ul>-->
+		<ul>
+			<li ng-repeat="pro in pro">
+				{{$index}}{{pro.name}}
+				<ul>
+					<li ng-repeat="city in pro.cities">
+						{{$index}}{{city.name}}父级索引{{$parent.$index}}
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="js/angular.min.js" ></script>
+	<script>
+		var app = angular.module("myApp",[]);
+		app.controller("myCtro",function($scope){
+			var pro = [
+			{
+				name:"浙江",
+				cities:[
+					{name:"金华"},
+					{name:"杭州"},
+					{name:"温州"}
+				]
+			},
+			{
+				name:"河南",
+				cities:[
+					{name:"郑州"},
+					{name:"洛阳"},
+					{name:"开封"}
+				]
+			},
+			{
+				name:"江苏",
+				cities:[
+					{name:"南京"},
+					{name:"徐州"},
+					{name:"连云港"}
+				]
+			}
+			];
+			$scope.pro = pro;
+		});
+	</script>
+</html>

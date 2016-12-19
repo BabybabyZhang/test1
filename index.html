@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body ng-controller="myCtrl">
+		<!--
+        	angular优势：
+        	1. 依赖注入 Dependency Injection
+        	2. 双向数据绑定 Two Way Data-Binding
+        	3. 测试 Test
+        	4. 控制 Model-View Controller
+        	5. Dierctive(指令) , Filters(过滤器) 等等
+        	注意事项：
+        	1. 在需要的地方，添加指令ng-app------必不可少，也是唯一的
+        		标识就是程序的一个入口，在它所包含的内部，如果符合angular的语法，那么就按照angular语法来解析
+        	2. 不同的数据类型展示
+        		基本的数据类型   引用类型
+        	复杂的对象类型：
+        	MVC思想：
+        		M----model----数据
+        		V----view------视图
+        		C----controller-----连接视图和数据
+        		写法：
+        			html节点添加ng-app="app"
+        -->
+        <!--
+        	js中NaN不等于NaN
+        	Angluar中{{NaN == NaN}}返回的值为true
+        -->
+        <!--
+        	一个页面只能有一个入口
+        	一个页面可以有多个控制器
+        -->
+        {{ username }}
+	</body>
+	<script type="text/javascript" src="js/angular.min.js" ></script>
+	<script>
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.username = "zhangyan";
+		});
+	</script>
+</html>

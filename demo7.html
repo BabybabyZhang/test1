@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<style>
+			.dropdown{
+				float:left;
+				width:100px;
+				height:40px;
+				line-height:40px;
+				margin:0 30px;
+			}
+			.dropdown-menu{
+				text-indent: 20px;
+			}
+		</style>
+	</head>
+
+	<body ng-controller="myCtro">
+		<!--<ul>
+			<li ng-repeat="pro in pro">
+				{{$index}}{{pro.name}}
+				<ul>
+					<li ng-repeat="city in pro.cities">
+						{{$index}}{{city.name}}父级索引{{$parent.$index}}
+					</li>
+				</ul>
+			</li>
+		</ul>-->
+		<div class="dropdown" ng-repeat="pro in pro">
+			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
+			    {{pro.name}}
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" >
+			    <li role="presentation" ng-repeat="city in pro.cities">
+			    	{{city.name}}
+			    </li>
+			</ul>
+		</div>
+		<!--<ul class="list-group" >
+		  <li class="list-group-item" ng-repeat="pro in pro">
+		  		{{pro.name}}
+		  		<ul>
+		  			<li ng-repeat="city in pro.cities">
+		  				{{city.name}}
+		  			</li>
+		  		</ul>
+		  </li>
+		</ul>-->
+
+
+	</body>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script>
+		var app = angular.module("myApp", []);
+		app.controller("myCtro", function($scope) {
+			var pro = [{
+				name: "浙江",
+				cities: [{
+					name: "金华"
+				}, {
+					name: "杭州"
+				}, {
+					name: "温州"
+				}]
+			}, {
+				name: "河南",
+				cities: [{
+					name: "郑州"
+				}, {
+					name: "洛阳"
+				}, {
+					name: "开封"
+				}]
+			}, {
+				name: "江苏",
+				cities: [{
+					name: "南京"
+				}, {
+					name: "徐州"
+				}, {
+					name: "连云港"
+				}]
+			}];
+			$scope.pro = pro;
+		});
+	</script>
+
+</html>
